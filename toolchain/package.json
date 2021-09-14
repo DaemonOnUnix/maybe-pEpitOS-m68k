@@ -1,0 +1,9 @@
+{
+    "description": "gcc-10.2.0 binutils-2.35 newlib-3.3.0 gdb-10.1",
+    "name": "toolchain-m68k-elf-current",
+    "system": [
+        "linux_x86_64"
+    ],
+    "url": "https://github.com/haarer/toolchain68k",
+    "version": "10.2.0"
+}
