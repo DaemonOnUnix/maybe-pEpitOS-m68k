@@ -1,10 +1,10 @@
 KERNEL := pEpitOS
 
-FREESTANDING_INCLUDES := ../toolchain/lib/gcc/m68k-elf/10.2.0/include/
+FREESTANDING_INCLUDES := #../toolchain/lib/gcc/m68k-elf/10.2.0/include/
 
-AS := m68k-elf-as
-CC := m68k-elf-gcc
-LD := m68k-elf-ld
+AS := m68k-linux-gnu-as
+CC := m68k-linux-gnu-gcc
+LD := m68k-linux-gnu-ld
 
 ARCH = x86_64
 ARCH_FOLDER = arch
@@ -38,7 +38,7 @@ OBJ    := $(SFILES:%.s=$(BUILD)/%.o)
 OBJ    += $(CFILES:%.c=$(BUILD)/%.o)
 
 QEMU = qemu-system-m68k
-QEMU_PARAMS_NODEBUG = -no-reboot -D ./log.txt -d int,guest_errors -serial mon:stdio 
+QEMU_PARAMS_NODEBUG = -no-reboot -D ./log.txt -d int,guest_errors -serial mon:stdio -M an5206 -m 125M
 QEMU_PARAMS_DEBUG = -S -gdb tcp::9000
 
 $(shell mkdir -p $(addprefix $(BUILD)/,$(SRCDIRS)))
